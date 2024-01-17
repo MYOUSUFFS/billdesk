@@ -45,19 +45,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text('BillDesk payment intergration'),
             Text('BillDesk', style: Theme.of(context).textTheme.headlineMedium),
-            Container(
-              child: Lottie.asset("json/json.json"),
-            )
+            Container(child: Lottie.asset("json/json.json", repeat: false)),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => MyBillDesk(),
+        onPressed: () => MyBillDesk.lanchWebView(),
         tooltip: 'Increment',
-        label: Text(
-          "Pay",
-          style: TextStyle(fontSize: 18),
-        ),
+        label: Text("Pay", style: TextStyle(fontSize: 18)),
         icon: Icon(Icons.send),
       ),
     );

@@ -31,7 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
   lottie: ^2.7.0
-  payu_checkoutpro_flutter: ^1.0.4
   billDeskSDK:
     path: ./billDeskSDK
 
