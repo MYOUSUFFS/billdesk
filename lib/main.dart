@@ -1,3 +1,5 @@
+// import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -37,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text("Flutter BillDesk demo"),
+        title: const Text("Flutter BillDesk demo"),
       ),
       body: Center(
         child: Column(
@@ -46,20 +48,89 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text('BillDesk payment intergration'),
             Text('BillDesk', style: Theme.of(context).textTheme.headlineMedium),
             Container(
-              child: Lottie.asset("json/json.json"),
-            )
+              child: Lottie.asset("json/json.json", repeat: false),
+            ),
+            // ElevatedButton(
+            //     onPressed: () {
+            //       runFlutterApp();
+            //     },
+            //     child: const Text("Run Terminal")),
+            // const SizedBox(height: 10),
+            // ElevatedButton(
+            //     onPressed: () {
+            //       openFolder();
+            //     },
+            //     child: const Text("Opened Terminal"))
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => MyBillDesk(),
+        onPressed: () async => await MyBillDesk().lanchWebView(context),
         tooltip: 'Increment',
-        label: Text(
+        label: const Text(
           "Pay",
           style: TextStyle(fontSize: 18),
         ),
-        icon: Icon(Icons.send),
+        icon: const Icon(Icons.send),
       ),
     );
   }
 }
+
+// void runFlutterApp() {
+//   // Replace 'path/to/flutter_app_directory' with the actual path to your Flutter app directory.
+//   String flutterAppDirectory = '/Users/MYSoft/ecfile/ecfile_test/billdesk/';
+
+//   Process.run(
+//     'open',
+//     ['-a', 'Terminal', flutterAppDirectory],
+//   );
+// }
+
+// openFolder() {
+//   String flutterAppDirectory = '/Users/MYSoft/ecfile/ecfile_test/billdesk/';
+//   String appleScriptCommand = '''
+//       tell application "Terminal"
+//           activate
+//           do script "cd $flutterAppDirectory; code ." in front window
+//       end tell
+//     ''';
+//   Process.run('osascript', ['-e', appleScriptCommand]);
+// }
+
+// void runFlutterAppOpened() {
+//   // Replace 'path/to/flutter_app_directory' with the actual path to your Flutter app directory.
+//   String flutterAppDirectory = '/Users/MYSoft/ecfile/ecfile_test/billdesk/';
+
+//   // Replace 'flutter run' with the command you use to run your Flutter app.
+//   String flutterCommand = 'flutter run';
+
+//   // Construct the AppleScript command to execute the terminal command.
+//   String appleScriptCommand = '''
+//       tell application "Terminal"
+//           do script "cd $flutterAppDirectory; $flutterCommand"
+//       end tell
+//     ''';
+
+//   // Execute the AppleScript command.
+//   Process.run('osascript', ['-e', appleScriptCommand]);
+// }
+
+// void runFlutterAppOpened1() {
+//   // Replace 'path/to/flutter_app_directory' with the actual path to your Flutter app directory.
+//   String flutterAppDirectory = 'path/to/flutter_app_directory';
+
+//   // Replace 'flutter run' with the command you use to run your Flutter app.
+//   String flutterCommand = 'flutter run';
+
+//   // Construct the AppleScript command to execute the terminal command.
+//   String appleScriptCommand = '''
+//       tell application "Terminal"
+//           activate
+//           do script "cd $flutterAppDirectory; $flutterCommand" in front window
+//       end tell
+//     ''';
+
+//   // Execute the AppleScript command.
+//   Process.run('osascript', ['-e', appleScriptCommand]);
+// }
